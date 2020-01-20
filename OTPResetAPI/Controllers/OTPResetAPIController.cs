@@ -81,12 +81,13 @@ namespace OTPResetAPI.Controllers
         public Boolean validateRequest(string input)
         {
             var empid = "1001"; //session value
+            var acctid = "5635";    // members account id last 4 digits retrieved
             var genotp = "999999"; //otp retrieved from database 
 
             if (!String.IsNullOrEmpty(input))
             {
                 string[] inReq = input.Split("#");
-                if(inReq[0] == empid && inReq[1] == genotp)
+                if(inReq[0] == empid && inReq[1] == acctid && inReq[2] == genotp)
                 {
                     return true;
                 }
